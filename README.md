@@ -14,13 +14,13 @@
 
 ## sentences テーブル
 
-| Column     | Type   | Options                        |
-| ---------- | ------ | ------------------------------ |
-| sentence   | text   | null: false                    |
-| translate  | text   | null: false                    |
-| remarks    | text   |                                |
-| tag        | text   | null: false                    |
-| user   | references | null: false, foreign_key: true |
+| Column     | Type       | Options                        |
+| ---------- | -----------| ------------------------------ |
+| sentence   | text       | null: false                    |
+| translate  | text       | null: false                    |
+| remarks    | text       |                                |
+| tag        | text       | null: false                    |
+| user       | references | null: false, foreign_key: true |
 
 ### Association
 
