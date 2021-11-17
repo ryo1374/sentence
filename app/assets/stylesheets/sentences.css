@@ -1,0 +1,87 @@
+.wrapper {
+  display: flex;
+}
+
+.side {
+  background-color: rgb(209, 209, 209);
+  width: 300px;
+  height: 100vh;
+}
+
+.side-header {
+  height: 100px;
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-name a{
+  font-size: 30px;
+  color:green;
+  text-decoration: none;
+}
+
+.side-form {
+  height: calc(100vh - 100px);
+  padding: 0 20px;
+}
+
+.main {
+  background-color: #fff;
+  width: calc(100vw - 300px);
+}
+
+.main-header {
+  height: 100px;
+  padding: 0 40px;
+}
+
+.form-input {
+  background-color: white;
+  width: 100%;
+  padding-top: 20px;
+}
+
+.form-search {
+  height: 50px;
+  width: 100%;
+  padding-left: 10px;
+}
+
+.main-form {
+  background-color: #FAFAFA;
+  height: calc(100vh - 100px - 50px);
+  padding: 46px 40px 0;
+  overflow: scroll;
+}
+
+.sentence {
+  margin: 50px 0 0 0;
+}
+
+.english {
+  display: flex;
+}
+
+.english-text {
+  color: #434a54;
+  font-size: 30px;
+}
+
+.japanese {
+  margin-top: 10px;
+  display: flex;
+}
+
+.japanese-text {
+  color: #434a54;
+  font-size: 20px;
+  margin-bottom: 40px;
+}
+
+.footer {
+  background-color: #DDDDDD;
+  height: 50px;
+  padding: 20px 40px;
+}
