@@ -71,6 +71,7 @@
 
 .japanese {
   margin-top: 10px;
+  display: flex;
 }
 
 .japanese-text {
