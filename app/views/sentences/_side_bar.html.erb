@@ -2,6 +2,9 @@
   <div class="header-name">
     <a href="#">Tom</a>
   </div>
+   <div class="delete-button">
+    <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'%>
+  </div>
 </div>
 
 <div class="side-form">
