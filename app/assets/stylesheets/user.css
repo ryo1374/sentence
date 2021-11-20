@@ -10,7 +10,7 @@
 }
 
 h1 {
-  padding-top: 100px;
+  padding-top: 150px;
   font-weight: 400;
   font-size: 28px;
 }
@@ -21,9 +21,8 @@ h1 {
   align-items: center;
   width: 350px;
   height: 390px;
-  margin: 80px auto 0;
-  border-radius: 4px;
-  border: 1px #ddd solid;
+  margin: 120px auto 0;
+  
 }
 
 .box-inner {
