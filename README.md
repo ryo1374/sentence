@@ -10,9 +10,9 @@
 
 ### Association
 
-- has_many :sentences
+- has_many :texts
 
-## sentences テーブル
+## texts テーブル
 
 | Column     | Type       | Options                        |
 | ---------- | -----------| ------------------------------ |
@@ -20,6 +20,7 @@
 | translate  | text       | null: false                    |
 | remarks    | text       |                                |
 | tag        | text       | null: false                    |
+| type_id    | integer    | null: false                    |
 | user       | references | null: false, foreign_key: true |
 
 ### Association
