@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  get 'sentences/index'
-  root to: "sentences#index"
-  resources :users, only: [:edit, :update]
+  root to: "texts#index"
+  resources :users, only: [:edit, :update, :show]
+  resources :texts
 end
