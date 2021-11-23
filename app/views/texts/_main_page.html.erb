@@ -1,0 +1,25 @@
+<div class="main-header">
+  <div class="form-input">
+     <input class="form-search" type="search" name="search" placeholder="キーワードを入力">
+  </div>
+</div>
+
+<div class="main-form">
+<div class="sentence">
+  <% @texts.each do |text| %>
+    <div class="english">
+      <div class="english-text">
+        <%= text.sentence %>
+      </div>
+    </div>
+    <div class="japanese">
+      <div class="japanese-text">
+        <%= text.translate %>
+      </div>
+    </div>
+  <% end %>
+  </div>
+</div>
+
+<div class="footer">
+</div>
