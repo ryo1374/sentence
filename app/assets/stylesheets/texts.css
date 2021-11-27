@@ -6,6 +6,7 @@
   background-color: rgb(209, 209, 209);
   width: 300px;
   height: 100vh;
+  
 }
 
 .side-header {
@@ -89,7 +90,7 @@
 }
 
 .footer {
-  background-color: #DDDDDD;
+  background-color: darkslategray;
   height: 50px;
   padding: 20px 40px;
 }
