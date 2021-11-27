@@ -12,7 +12,7 @@
       <% @texts.each do |text| %>
         <div class="english">
           <div class="english-text">
-          <a href="texts/show"><%= text.sentence %></a>
+          <%= link_to text.sentence, text_path(text.id) %></a>
           </div>
         </div>
      <div class="japanese">
