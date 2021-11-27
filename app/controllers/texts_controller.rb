@@ -29,7 +29,8 @@ class TextsController < ApplicationController
   end
 
   def update
-    text.update(text_params)
+    @text.update(text_params)
+    redirect_to root_path
   end
 
   def show
@@ -49,6 +50,7 @@ class TextsController < ApplicationController
   def set_text
     @text = Text.find(params[:id])
   end
+
 
  
 end
