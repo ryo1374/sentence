@@ -1,7 +1,8 @@
 class TextsController < ApplicationController
+
   def index
-    @texts = Text.order("created_at DESC")
-    @text = Text.new
+    @nickname = current_user.nickname
+    @texts = current_user.texts
   end
 
   def new
@@ -17,8 +18,19 @@ class TextsController < ApplicationController
     end
   end
 
+  def show
+   
+  end
+
+  def search
+    @texts = Text.search(params[:keyword])
+    @keyword = params[:keyword]
+  end
+
   private
   def text_params
     params.require(:text).permit(:sentence, :translate, :remarks, :tag, :type_id).merge(user_id: current_user.id)
   end
+
+ 
 end
