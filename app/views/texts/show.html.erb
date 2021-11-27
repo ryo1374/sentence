@@ -1,30 +1,26 @@
 <div class="new-wrapper">
-    <h1>文章の登録</h1>
+  <div class="main-title">
+    <h1><%= @text.sentence %></h1>
+  </div>
   <div class='text-registration'>
     <%=form_with model: @text, local: true do |f|%>
-      <div class='text-registration__field'>
-        <div class='text-registration__field--left'>
-          <%= f.label :英文, class: 'text-registration__label'%>
-        </div>
-        <div class='text-registration__field--right'>
-          <%= f.text_field :sentence, class: 'text-registration text-registration__input', placeholder: '英文を入力してください'%>
-        </div>
-      </div>
+     
       <div class='text-registration__field'>
         <div class='text-registration__field--left'>
           <%= f.label :和訳, class: 'text-registration__label'%>
         </div>
         <div class='text-registration__field--right'>
-          <%= f.text_field :translate, class: 'text-registration text-registration__input', placeholder: '和訳を入力してください'%>
+        
+          <%= @text.translate %>
         </div>
       </div>
 
   <div class='text-registration__field'>
         <div class='text-registration__field--left'>
-          <%= f.label :備考, class: 'text-registration__label'%>
+          <%= f.label :補足, class: 'text-registration__label'%>
         </div>
         <div class='text-registration__field--right'>
-          <%= f.text_field :remarks, class: 'text-registration text-registration__input', placeholder: '備考を入力してください(任意)'%>
+          <%= @text.remarks %>
         </div>
       </div>
 
@@ -33,7 +29,7 @@
           <%= f.label :タグ, class: 'text-registration__label'%>
         </div>
         <div class='text-registration__field--right'>
-          <%= f.text_field :tag, class: 'text-registration text-registration__input', placeholder: 'タグを入力してください(最大3つ)'%>
+          <%= @text.tag%>
         </div>
       </div>
 
@@ -42,19 +38,19 @@
           <%= f.label :文章タイプ, class: 'text-registration__label'%>
         </div>
         <div class='text-registration__field--right'>
-          <%= f.collection_select(:type_id, Type.all, :id, :name, {}, {class:"type-select"}) %>
+          <%= @text.type.name %>
         </div>
       </div>
 
 
 
       <div class='text-registration__field'>
-      </div>
-      
-      <div class='text-registration__field'>
         <div class='text-registration__field--left'></div>
         <div class='text-registration__field--right'>
-          <%= f.submit class: 'text-registration__action-btn'%>
+          <%= link_to "編集",  edit_text_path(@text.id), class: 'text-edit__action-btn' %>
+        </div>
+        <div class='text-registration__field--right'>
+          <%= link_to "削除", text_path(@text.id), method: :delete, class: 'text-delete__action-btn'%>
         </div>
       </div>
     </div>
