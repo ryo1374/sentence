@@ -12,10 +12,10 @@
     <ul class="menu-bar">
     <li><%= link_to 'ホーム', root_path, method: :GET %></li>
       <li><%= link_to '文章を登録', new_text_path, method: :GET %></li>
-      <li>タグ</li>
-      <li>検索履歴</li>
-      <li>最後に追加した文章</li>
+      <li><%# @tag_lists.each do |list|%></li>
+        
+        <%#= link_to "", list.tag_name, texts_path(tag_id: list.id), class: 'tag_list' %>
+      
     </ul>
-
   </div>
 </div>
