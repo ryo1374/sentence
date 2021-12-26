@@ -1,9 +1,9 @@
 <div class="new-wrapper">
     <div class="main-title">
-   <h1>文章の登録</h1>
+   <h1>文章の編集</h1>
   </div>
   <div class='text-registration'>
-    <%=form_with model: @text, local: true do |f|%>
+    <%=form_with model: @text, url: text_path(@text.id), method: :patch, local: true do |f|%>
       <div class='text-registration__field'>
         <div class='text-registration__field--left'>
           <%= f.label :英文, class: 'text-registration__label'%>
@@ -30,14 +30,25 @@
         </div>
       </div>
 
-  <div class='text-registration__field'>
+    <div class='text-registration__field'>
         <div class='text-registration__field--left'>
           <%= f.label :タグ, class: 'text-registration__label'%>
         </div>
-        <div class='text-registration__field--right'>
-          <%= f.text_field :tag, class: 'text-registration text-registration__input', placeholder: 'タグを入力してください(最大3つ)'%>
+         <div class='text-registration__field--right'>
+          <div class="check_box">
+          <span>タグ</span>
+            <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :tag_name) do |tag| %>
+            <div>
+              <%= tag.label do %>
+                <%= tag.check_box %>
+                <%= tag.text %>
+              <% end %>
+            </div>
+          <% end %>
+          </div>
+       
         </div>
-      </div>
+        </div>
 
    <div class='text-registration__field'>
         <div class='text-registration__field--left'>
@@ -53,10 +64,15 @@
       <div class='text-registration__field'>
       </div>
       
-      <div class='text-registration__field'>
+      <div class='text-btn__field'>
         <div class='text-registration__field--left'></div>
-        <div class='text-registration__field--right'>
+        <div class='btn-field'>
+        <div class='submit-btn'>
           <%= f.submit "更新", class: 'text-registration__action-btn'%>
+        </div>
+        <div class='root-btn'>
+          <%= link_to "戻る", text_path, class: 'text-registration__action-btn'%>
+        </div>
         </div>
       </div>
     </div>
