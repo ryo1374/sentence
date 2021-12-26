@@ -10,13 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_20_055805) do
+ActiveRecord::Schema.define(version: 2021_12_01_005608) do
+
+  create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "tag_name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "text_tag_relations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "text_id"
+    t.bigint "tag_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tag_id"], name: "index_text_tag_relations_on_tag_id"
+    t.index ["text_id"], name: "index_text_tag_relations_on_text_id"
+  end
 
   create_table "texts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "sentence", null: false
     t.text "translate", null: false
     t.text "remarks"
-    t.text "tag", null: false
     t.integer "type_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -37,5 +51,7 @@ ActiveRecord::Schema.define(version: 2021_11_20_055805) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "text_tag_relations", "tags"
+  add_foreign_key "text_tag_relations", "texts"
   add_foreign_key "texts", "users"
 end

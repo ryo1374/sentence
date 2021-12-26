@@ -2,8 +2,7 @@ class TextsController < ApplicationController
   before_action :set_text, only: [:show, :edit, :update, :destroy]
 
   def index
-    @nickname = current_user.nickname
-    @texts = current_user.texts
+    @texts = params[:tag_id].present? ? Tag.find(params[:tag_id]).texts : Text.all
   end
 
   def new
@@ -11,8 +10,9 @@ class TextsController < ApplicationController
   end
 
   def create
-    @text = Text.create(text_params)
-    if @text.save
+    @text = Text.new(text_params)
+    if @text.valid?
+      @text.save
       redirect_to root_path
     else
       render :new
@@ -25,12 +25,19 @@ class TextsController < ApplicationController
   end
 
   def edit
-
+    #text_attributes = @text.attributes
+    #@text_form = TextForm.new(text_attributes)
+    #@text_form.tag_name = @text.tags&.first&.tag_name
   end
 
   def update
-    @text.update(text_params)
-    redirect_to root_path
+    #@text = Text.new(text_params)
+    if @text.valid?
+      @text.update(text_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   def show
@@ -39,18 +46,15 @@ class TextsController < ApplicationController
 
   def search
     @texts = Text.search(params[:keyword])
-    @keyword = params[:keyword]
   end
+
 
   private
   def text_params
-    params.require(:text).permit(:sentence, :translate, :remarks, :tag, :type_id).merge(user_id: current_user.id)
+    params.require(:text).permit(:sentence, :translate, :remarks, :type_id, tag_ids: []).merge(user_id: current_user.id)
   end
 
   def set_text
     @text = Text.find(params[:id])
   end
-
-
- 
 end

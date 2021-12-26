@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users
     resources :texts do
     collection do
-      get 'search' => 'texts#search'
+      get 'search' #=> 'texts#search'
     end
   end
 end

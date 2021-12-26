@@ -79,13 +79,28 @@ li {
   box-sizing: border-box;
 }
 .text-registration__field--right {
-  
+  padding-right: 5px;
   width: 70%;
 }
 
 .type-select {
   width: 120px;
   height: 30px;
+}
+
+.tag-list {
+  display: flex;
+  width: 70%;
+}
+
+.btn-field {
+  display: flex;
+  justify-content:right;
+  padding-top: 30px;
+}
+
+.submit-btn {
+  margin-right: 5px;
 }
 
 
